@@ -1,0 +1,23 @@
+.err-header {
+    background-color        : #b72828;
+    color                   : #ffffff;
+    padding                 : 30px 50px;
+    font-size               : 40px;
+    margin                  : 0;
+    border-top-left-radius  : 8px;
+    border-top-right-radius : 8px;
+}
+
+.err-container {
+    background-color           : #fa2d2d;
+    color                      : #ffffff;
+    padding                    : 30px 50px;
+    font-size                  : 20px;
+    border-bottom-left-radius  : 8px;
+    border-bottom-right-radius : 8px;
+}
+
+span.highlight {
+    font-style  : italic;
+    font-weight : bold;
+}

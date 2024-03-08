@@ -1,0 +1,10 @@
+#<IfModule mod_rewrite.c>
+ErrorDocument 404 /index.html
+RewriteEngine On
+RewriteBase /SPA_js/
+
+# Si le fichier ou le répertoire demandé n'existe pas, redirigez-le vers index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /SPA_js/ [L]
+#</IfModule>

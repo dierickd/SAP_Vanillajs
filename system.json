@@ -1,0 +1,13 @@
+[
+    "views/homeView",
+    "views/404View",
+    "views/aboutView",
+    "views/articlesView",
+    "views/articleDetailView",
+    "views/debugRouteView",
+    "src/Controller/ArticleController",
+    "src/Controller/HomeController",
+    "src/Route/routes",
+    "src/Route/routeManager",
+    "src/model/ArticleModel"
+]
