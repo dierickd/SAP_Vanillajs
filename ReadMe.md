@@ -37,16 +37,32 @@ La liste des fichiers à insérer dans le header se trouve dans le fichier ***sy
 ### Création d'un controller
 
 1. Création du fichier de class dans *scr/Controller* en **UpperCamelCase**
-2. Ajout du nom du fichier dans **system.json**
+2. Ajout du nom du fichier dans **system.json**, les noms des clés comme *"src"* ou *"controller"* correspond au 
+   nom du dossier
 ```json
-[
-    ....
-    "src/Controller/ArticleController",
-    "src/Controller/HomeController",
-    "src/Route/routes",
-    "src/Route/routeManager",
-    "src/model/ArticleModel"
-]
+{
+    "views": [
+        "homeView",
+        "404View",
+        "aboutView",
+        "articlesView",
+        "articleDetailView",
+        "debugRouteView"
+    ],
+    "src": {
+        "controller": [
+            "ArticleController",
+            "HomeController"
+        ],
+        "model": [
+            "ArticleModel"
+        ],
+        "route": [
+            "routes",
+            "routeManager"
+        ]
+    }
+}
 ```
 3. Ajouter le nom de class dans le fichier **classMap.js**
 ```javascript
@@ -57,6 +73,17 @@ function classMap() {
     };
 }
 ```
+4. Ajouter ensuite la route dans le fichier *Route/routes.js*
+```javascript
+const routes = [
+    { path: BASE_URI, view: homeView },
+    { path: BASE_URI + 'about', view: aboutView },
+    { path: BASE_URI + 'article', view: articlesView },
+    { path: BASE_URI + 'article/:id', view: articleDetailView },
+    // Add more routes as needed
+];
+```
+
 
 ### Création d'un template
 
