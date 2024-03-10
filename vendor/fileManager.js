@@ -6,7 +6,7 @@ const HEAD = document.getElementsByTagName('head')[0];
  * @returns {Promise<void>}
  */
 const importScriptFile = async () => {
-    await fetch("/SPA_js/system.json")
+    await fetch("/SPA_js/config/system.json")
         .then((response) => response.json())
         .then(files => {
 
