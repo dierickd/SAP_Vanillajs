@@ -1,3 +1,7 @@
+/**
+ *
+ * @returns {string}
+ */
 function getErrorFileInfo() {
     try {
         throw new Error();
@@ -19,6 +23,10 @@ function getErrorFileInfo() {
     }
 }
 
+/**
+ *
+ * @returns {string}
+ */
 function getCurrentLineNumber() {
     try {
         throw new Error();

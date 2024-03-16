@@ -5,14 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your SPA</title>
     <link rel="stylesheet" href="style.css">
-    <script src="vendor/getErrorFileInfo.js"></script>
-    <script src="src/Controller/GlobalController.js"></script>
-    <script src="config/config.js"></script>
-    <script src="vendor/fileManager.js"></script>
-    <script src="config/classMap.js"></script>
 </head>
 <body>
 
 <div id="app"></div>
+<script>
+    let url = window.location.pathname;
+    if (url.startsWith('/')) url = url.slice(1);
+    if (url.endsWith('/')) url = url.slice(0, -1);
+
+    const splitUrl = url.split("/");
+    const b = document.createElement("a");
+    b.style.display = "none";
+    const body = document.getElementsByTagName("body")[0];
+
+    if (splitUrl.length > 2) {
+        localStorage.setItem("referer", window.location.pathname);
+        window.location.href = "/SPA_js/";
+    }
+
+    if (window.localStorage.getItem("referer")) {
+        b.href = window.localStorage.getItem("referer");
+        body.appendChild(b);
+
+        setTimeout(() => {
+            b.click();
+            localStorage.removeItem("referer");
+        }, 300);
+    }
+
+</script>
+<script type="text/javascript" src="vendor/getErrorFileInfo.js"></script>
+<script type="text/javascript" src="src/Controller/GlobalController.js"></script>
+<script type="text/javascript" src="config/config.js"></script>
+<script type="text/javascript" src="vendor/fileManager.js"></script>
+<script type="text/javascript" src="vendor/debugRouteView.js"></script>
+<script type="text/javascript" src="src/Route/Route.js"></script>
+<script type="text/javascript" src="src/Route/routeMap.js"></script>
+<script type="text/javascript" src="config/classMap.js"></script>
 </body>
 </html>

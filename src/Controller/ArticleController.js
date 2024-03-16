@@ -6,13 +6,16 @@ class ArticleController extends GlobalController {
         super(routeFragment, appContainer);
         this.routeFragment = routeFragment;
         this.appContainer = appContainer;
-
-        console.log("class instancier");
-        this.index();
     }
 
     index = () => {
-        console.log("--->>>> articleController");
-        this.checkModel('getAllArticle', this.appContainer);
-    }
+        document.getElementById(ID_CONTAINER).innerHTML = ""
+        this.renderView(articlesView);
+    };
+
+    view = () => {
+        document.getElementById(ID_CONTAINER).innerHTML = ""
+        console.log(this.routeFragment.params);
+        this.renderView(articleDetailView, this.routeFragment.params);
+    };
 }

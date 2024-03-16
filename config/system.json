@@ -4,8 +4,7 @@
         "404View",
         "aboutView",
         "articlesView",
-        "articleDetailView",
-        "debugRouteView"
+        "articleDetailView"
     ],
     "src": {
         "controller": [
@@ -13,7 +12,8 @@
             "HomeController"
         ],
         "model": [
-            "ArticleModel"
+            "ArticleModel",
+            "HomeModel"
         ],
         "route": [
             "routes",

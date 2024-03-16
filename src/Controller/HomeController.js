@@ -6,11 +6,10 @@ class HomeController extends GlobalController {
         super(routeFragment, appContainer);
         this.routeFragment = routeFragment;
         this.appContainer = appContainer;
-
-        this.index();
     }
 
     index() {
         console.log("--->>>> homeController");
+        this.renderView(homeView);
     }
 }
