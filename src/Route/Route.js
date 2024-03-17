@@ -46,34 +46,9 @@ class Route {
         this.routeFragment = {
             "controller": routeSplit[1] ?? 'Home',
             "method": routeSplit[2] ?? 'index',
-            // 'params': this.getParams(),
             'parent': this.appContainer
         };
         this.getParams();
-    };
-
-    /**
-     *
-     * @returns {boolean}
-     */
-    matchPath = (routePath) => {
-        const routeSegments = routePath.split('/');
-        const currentSegments = this.currentPath.split('/');
-
-        if (routeSegments.length !== currentSegments.length) {
-            return false;
-        }
-
-        for (let i = 0; i < routeSegments.length; i++) {
-            const routeSegment = routeSegments[i];
-            const currentSegment = currentSegments[i];
-
-            if (routeSegment !== currentSegment && !routeSegment.startsWith(':')) {
-                return false;
-            }
-        }
-
-        return true;
     };
 
     /**
@@ -106,13 +81,11 @@ class Route {
             }
         }
 
-        console.log("route");
         this.routeFragment.params = params;
         this.checkRouteParameters();
     };
 
     checkRouteParameters() {
-        console.log("check");
         const controller = this.routeFragment.controller + "Controller";
         const nameClassController = controller.charAt(0).toUpperCase() + controller.slice(1);
         const classInstance = this.getController(nameClassController);
