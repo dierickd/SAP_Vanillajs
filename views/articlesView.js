@@ -1,11 +1,28 @@
 const articlesView = (params) => {
     const element = document.createElement('div');
-    element.innerHTML = '<h1>Liste des articles</h1>' +
-        '<ul>\n' +
-        '    <li><a href=' + Route.getRoute("article_detail", { id: 3 }) + '>Article 3</a></li>\n' +
-        '    <li><a href=' + Route.getRoute("article_detail", { id: 16 }) + '>Article 16</a></li>\n' +
-        '    <li><a href=' + Route.getRoute("article_detail", { id: 32 }) + '>Article 32</a></li>\n' +
-        '</ul>' +
-        '<a href="' + BASE_URI + '">Retour à la page d\'accueil</a>';
+    const h1 = document.createElement("h1");
+    const back = document.createElement("a");
+    h1.innerHTML = "Liste des articles";
+    element.appendChild(h1);
+    back.href = BASE_URI;
+    back.style.color = "rgba(0,0,0,0.5)";
+    back.style.fontSize = "14px";
+    back.innerHTML = "Retour à l'accueil";
+    element.appendChild(back);
+
+    for (let i = 0; i < params.articles.length; i++) {
+        const h3 = document.createElement("h3");
+        const link = document.createElement("a");
+        const p = document.createElement("p");
+
+        link.href = Route.getRoute("article_detail", { id: params.articles[i].id });
+        link.innerHTML = params.articles[i].title;
+        h3.appendChild(link);
+
+        p.innerHTML = params.articles[i].content;
+
+        element.appendChild(h3);
+        element.appendChild(p);
+    }
     return element;
 };

@@ -9,12 +9,11 @@ class ArticleController extends GlobalController {
     }
 
     index = () => {
-        document.getElementById(ID_CONTAINER).innerHTML = ""
-        this.renderView(articlesView);
+        const allArticle = getAllArticle();
+        this.renderView(articlesView, {articles: getAllArticle() });
     };
 
     view = () => {
-        document.getElementById(ID_CONTAINER).innerHTML = ""
         console.log(this.routeFragment.params);
         this.renderView(articleDetailView, this.routeFragment.params);
     };
