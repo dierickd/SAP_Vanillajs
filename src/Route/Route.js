@@ -1,13 +1,11 @@
 class Route {
     routePath;
-    currentPath;
     routeFragment;
     appContainer;
 
     constructor(appContainer) {
         this.appContainer = appContainer;
-        this.currentPath = window.location.pathname;
-        this.routePath = this.currentPath;
+        this.routePath = window.location.pathname;
         this.generateRouteElement();
     }
 
@@ -59,8 +57,8 @@ class Route {
         let params = {};
         const routeSearch = this.routeFragment["controller"] + "/" + this.routeFragment["method"];
 
-        const entries = Object.entries(routeMap);
-        const filteredEntries = entries.filter(([key, value]) => value.startsWith(routeSearch));
+        const entries       = Object.entries(routeMap);
+        const filteredEntries       = entries.filter(([key, value]) => value.startsWith(routeSearch));
 
         if (filteredEntries.length > 0) {
             this.routeFragment.route_name = filteredEntries[0][0]; // Retourne la première clé du tableau

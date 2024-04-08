@@ -9,7 +9,6 @@ class HomeController extends GlobalController {
     }
 
     index() {
-        console.log("--->>>> homeController");
-        this.renderView(homeView);
+        this.renderView(homeView).then();
     }
 }

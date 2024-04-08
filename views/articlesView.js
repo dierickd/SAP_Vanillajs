@@ -18,11 +18,10 @@ const articlesView = (params) => {
         link.href = Route.getRoute("article_detail", { id: params.articles[i].id });
         link.innerHTML = params.articles[i].title;
         h3.appendChild(link);
-
         p.innerHTML = params.articles[i].content;
-
         element.appendChild(h3);
         element.appendChild(p);
     }
     return element;
-};
+}
+
